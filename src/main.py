@@ -6,10 +6,13 @@ from pathlib import Path
 from functions import *
 
 def main():
-    if not sys.argv[0]:
+    if len(sys.argv) < 2:
         basepath = '/'
     else:
-        basepath = sys.argv[0]
+        basepath = sys.argv[1]
+
+    if not basepath.endswith("/"):
+        basepath += "/"
 
     copy_content_to_public()
     generate_pages_recursive('./content', './template.html', './docs', basepath)
