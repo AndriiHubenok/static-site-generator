@@ -17,6 +17,7 @@ def main():
 def copy_content_to_public():
     if os.path.exists('./docs'):
         shutil.rmtree('./docs')
+        
     shutil.copytree('./static', './docs')
 
 
